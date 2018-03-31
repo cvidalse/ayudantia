@@ -24,6 +24,23 @@ public class Luchadores {
    Luchadores(){
    setStats();
    }
+   
+   public int getHp(){
+   return this.hp;
+   }
+   
+   public int getDef(){
+   return this.def;
+   }
+   
+   public int getAtk(){
+   return this.atk;
+   }
+   
+   public int getSpd(){
+   return this.spd;
+   }
+   
    public String getFaccion(){
    return this.faccion;
    }

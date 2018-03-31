@@ -92,7 +92,12 @@ public class ObjetoEquipable {
      */
     private void setMejoraFinal(){
     mejoraFinal = mejoraBase*rango;
-    }    
+    }
+
+    public int getMejoraFinal(){
+    return this.mejoraFinal;
+    }
+    
     public void mostrarMejoraFinal(){
     
         System.out.println("la mejora final proporcionada por el item es "+this.mejoraFinal);
