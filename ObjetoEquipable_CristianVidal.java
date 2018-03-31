@@ -5,6 +5,7 @@
  */
 package proyectoayudante;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -16,10 +17,11 @@ public class ObjetoEquipable {
     private int mejoraBase;
     private int mejoraFinal;
     Random rdm= new Random();
-    
+    private String statMejorar;
     ObjetoEquipable(){
         estrellas();
         mejoraBase();
+        statsAMejorar(statSeleccionable());
         setMejoraFinal();
     }
     
@@ -82,7 +84,27 @@ public class ObjetoEquipable {
       }}     
   return rango;//devuelve el numero de estrellas para el calculo final
  }
- 
+    
+    private ArrayList<String> statSeleccionable(){
+    ArrayList<String> stat = new ArrayList<>(); 
+    stat.add("vida");
+    stat.add("ataque");
+    stat.add("defensa");
+    stat.add("velocidad");
+    return stat;
+    }
+    
+    
+    private void statsAMejorar(ArrayList<String> stat){
+    
+    int control=rdm.nextInt(4);
+    statMejorar = stat.get(control);
+    }  
+    public void mostrarStatAMejorar(){
+    System.out.println("el atributo que mejorar este item es "+this.statMejorar);    
+    }
+        
+    
     private void mejoraBase(){
     mejoraBase=rdm.nextInt(8)+1;
     }
