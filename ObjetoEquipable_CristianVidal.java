@@ -18,6 +18,8 @@ public class ObjetoEquipable {
     private int mejoraFinal;
     Random rdm= new Random();
     private String statMejorar;
+    
+    
     ObjetoEquipable(){
         estrellas();
         mejoraBase();
@@ -120,6 +122,10 @@ public class ObjetoEquipable {
     return this.mejoraFinal;
     }
     
+    public int getRango(){
+    return this.rango;
+    }
+    
     public void mostrarMejoraFinal(){
     
         System.out.println("la mejora final proporcionada por el item es "+this.mejoraFinal);
@@ -128,5 +134,9 @@ public class ObjetoEquipable {
     System.out.println("El rango del objeto es "+this.rango);
     }
     
+    public void mostrarTodo(){
+    System.out.println("rango--------------------statmejorable-------------------mejoraFinal");
+    System.out.println("          "+rango+"---------------------"+statMejorar+"-------------------------------"+mejoraFinal);
+    }
  } 
 
