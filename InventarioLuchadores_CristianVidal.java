@@ -30,20 +30,28 @@ public class InventarioLuchadores {
     }
     
     public void mostrarUno(int heroe){
-    inventario.get(heroe).mostrarTodo();
+    if(inventario.size()>=heroe){
+            inventario.get(heroe).mostrarTodo();
+    }else{
+            System.out.println("no existe heroe en esa posicion");
+        
+    }
+    
     }
     
     public void mostrarInventario(){
-    
+    if(cantMinima()){
         for(int i=0;i<inventario.size();i++){
             System.out.print("heroe " +(i+1)+" ");
             inventario.get(i).mostrar(); 
     
         }
-    }
+    }}
     
     public void borrarLuchadores(int pos){
-         inventario.remove(pos);   
+        if(cantMinima()){ 
+        inventario.remove(pos);   
+    }
     }
     
     public void mostrarCant(){
@@ -56,28 +64,30 @@ public class InventarioLuchadores {
      * @return
      */
     public ArrayList<Luchadores> filtrarFaccion(String busqueda){
-    ArrayList<Luchadores> filtrado = new ArrayList<>();
-    int j=0;
-    for (int i =0;i<inventario.size();i++){
+            ArrayList<Luchadores> filtrado = new ArrayList<>();
+        if(cantMinima()){
+            int j=0;
+        for (int i =0;i<inventario.size();i++){
           if(inventario.get(i).getFaccion().equals(busqueda)){
              filtrado.add(j, inventario.get(i));
              j=+1;
         
             }
-         }
+         }}
         return filtrado;
     }
     
     public ArrayList<Luchadores> filtrarRango(int busqueda){
     ArrayList<Luchadores> filtrado = new ArrayList<>();
-    int j=0;
-    for (int i =0;i<inventario.size();i++){
+    if(cantMinima()){
+        int j=0;
+        for (int i =0;i<inventario.size();i++){
           if(inventario.get(i).getRango()==busqueda){
              filtrado.add(j, inventario.get(i));
              j=+1;
         
             }
-         }
+         }}
         return filtrado;
     }
     
@@ -87,6 +97,17 @@ public class InventarioLuchadores {
             filtro.get(i).mostrar(); 
        }
     }
-    }
+    
+    
+    private boolean cantMinima(){
+         boolean min = false;
+         if(inventario.size()<1){
+         System.out.println("Usted no cuenta con luchadores");
+         }else{
+         min = true;
+         } 
+         
+return min;
+}
 
-
+}
