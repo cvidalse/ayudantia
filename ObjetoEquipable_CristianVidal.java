@@ -136,7 +136,7 @@ public class ObjetoEquipable {
     
     public void mostrarTodo(){
     System.out.println("rango--------------------statmejorable-------------------mejoraFinal");
-    System.out.println("          "+rango+"---------------------"+statMejorar+"-------------------------------"+mejoraFinal);
+    System.out.println(""+rango+"---------------------"+statMejorar+"-------------------------------"+mejoraFinal);
     }
  } 
 

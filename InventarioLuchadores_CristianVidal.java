@@ -12,7 +12,9 @@ import java.util.ArrayList;
  * @author Ce
  */
 public class InventarioLuchadores {
-    
+     InventarioLuchadores(){
+     
+     }
    
     public void agregarLuchadores(ArrayList<Luchadores> inventario){
     if(maxHeroes(inventario)){
