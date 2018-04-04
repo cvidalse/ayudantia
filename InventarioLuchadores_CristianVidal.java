@@ -30,7 +30,7 @@ public class InventarioLuchadores {
     }
     
     public void mostrarUno(int heroe){
-    if(inventario.size()>=heroe){
+    if(inventario.size()>heroe){
             inventario.get(heroe).mostrarTodo();
     }else{
             System.out.println("no existe heroe en esa posicion");
