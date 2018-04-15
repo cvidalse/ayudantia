@@ -1,0 +1,6 @@
+Existen 5 clases en el estado actual del proyecto Luchadores, InventarioLuchadores, ObjetoEquipable, InventarioObjeto y Monstruo. 
+Del analisís se desprende que Luchadores e InventarioLuchadores tienen una relacion de asociacion ya que ambas necesitan saber de la existencia de la otra, tambien
+de los metodos se desprende la multiplicidad de ambas Luchadores(1:25) y InventarioLuchadores(1). Tambien ObjetoEquipable e InventarioObjeto estan asociadas debido a la 
+misma razon anterior, y su multiplicidad es ObjetoEquipable(0:10) y InventarioObjeto(1).
+La ultima relacion encontrada es una de uso entre Monstruo y ObjetoEquipable, Monstruo en uno de sus metodos utiliza ObjetoEquipable para crear el objeto que dejara al morir,por
+lo tanto Monstruo usa a ObjetoEquipable.
