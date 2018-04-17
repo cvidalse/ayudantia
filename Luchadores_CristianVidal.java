@@ -75,15 +75,15 @@ public class Luchadores {
   }
   
   private void setStats(){ //asigna cada uno de los stats del luchador     
-  hp= aleatorio(basevida(),estrellas() ); 
-  atk = aleatorio(baseatk(), estrellas());
-  def = aleatorio(basedef(), estrellas());
-  spd = aleatorio(basems(), estrellas());
+  hp= aleatorio(basevida(),estrellas); 
+  atk = aleatorio(baseatk(), estrellas);
+  def = aleatorio(basedef(), estrellas);
+  spd = aleatorio(basems(), estrellas);
   faccion = decidirFaccion(faccion());
   nombre = decidirNombres(names());
   }
   
- private int estrellas(){//define las estrellas de cada luchador 
+ private void estrellas(){//define las estrellas de cada luchador 
  Double control =rdm.nextDouble()*100;//genera un numero al azar entre 0 y 100 para generar las posibilidades
       if(40>control){
       estrellas=1;
@@ -102,7 +102,7 @@ public class Luchadores {
       }
       }
       }      
-  return estrellas;//devuelve el numero de estrellas para el calculo final
+  
  }
   
   private String[] faccion(){//array de facciones
@@ -146,7 +146,7 @@ public class Luchadores {
   }
   
   public void mostrarTodo(){ //resumen de los stats del peleador
-  System.out.println("el nombre del guerrero es "+nombre+" la faccion es "+faccion);
+  System.out.println("el nombre del luchador es "+nombre+" la faccion es "+faccion);
   System.out.println("la vida es "+hp+" el ataque es "+atk+" al defensa es "+def+" la velocidad de movimiento es "+spd+" rango "+estrellas);
   }
   
