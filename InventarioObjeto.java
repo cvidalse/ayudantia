@@ -60,7 +60,7 @@ public class InventarioObjeto {
     return max;
     }
     
-    private ArrayList<ObjetoEquipable> filtrar(int busqueda){
+    public ArrayList<ObjetoEquipable> filtrar(int busqueda){
     ArrayList<ObjetoEquipable> filtrado = new ArrayList<>();
     if(cantMinima()){
         int j=0;

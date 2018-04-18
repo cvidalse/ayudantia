@@ -46,12 +46,11 @@ public class InventarioLuchadores {
     }
     
     public void mostrarInventario(){
-    if(cantMinima()){
         for(int i=0;i<inventario.size();i++){
             System.out.print("heroe " +(i+1)+" ");
             inventario.get(i).mostrar(); 
     
-        }
+        
     }}
     
     public void borrarLuchadores(int pos){
@@ -75,14 +74,14 @@ public class InventarioLuchadores {
      */
     public ArrayList<Luchador> filtrarFaccion(String busqueda){
             ArrayList<Luchador> filtrado = new ArrayList<>();
-        if(cantMinima()){
+      
             int j=0;
         for (int i =0;i<inventario.size();i++){
           if(inventario.get(i).getFaccion().equals(busqueda)){
              filtrado.add(j, inventario.get(i));
              j=+1;
         
-            }
+            
          }}
         return filtrado;
     }
