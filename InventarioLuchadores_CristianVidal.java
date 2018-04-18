@@ -12,19 +12,18 @@ import java.util.ArrayList;
  * @author Ce
  */
 public class InventarioLuchadores {
-     InventarioLuchadores(){
-     
+    private ArrayList<Luchadores> inventario;
+    InventarioLuchadores(){
+     agregarLuchadores();
      }
-     InventarioLuchadores(ArrayList<Luchadores> inv){
-     agregarLuchadores(inv);
-     }
+  
    
-    public void agregarLuchadores(ArrayList<Luchadores> inventario){
-    if(maxHeroes(inventario)){
+    public void agregarLuchadores(){
+    if(maxHeroes()){
         inventario.add(new Luchadores());
     }
     }
-    private boolean maxHeroes(ArrayList<Luchadores> inventario){
+    private boolean maxHeroes(){
     boolean max=false;
         if(inventario.size()>25){
         System.out.println("Usted a alcanzado el numero maximo de heroes");
@@ -34,7 +33,7 @@ public class InventarioLuchadores {
     return max;
     }
     
-    public void mostrarUno(int heroe, ArrayList<Luchadores> inventario){
+    public void mostrarUno(int heroe){
     if(inventario.size()>heroe){
             inventario.get(heroe).mostrarTodo();
     }else{
@@ -44,8 +43,8 @@ public class InventarioLuchadores {
     
     }
     
-    public void mostrarInventario(ArrayList<Luchadores> inventario){
-    if(cantMinima(inventario)){
+    public void mostrarInventario(){
+    if(cantMinima()){
         for(int i=0;i<inventario.size();i++){
             System.out.print("heroe " +(i+1)+" ");
             inventario.get(i).mostrar(); 
@@ -53,8 +52,8 @@ public class InventarioLuchadores {
         }
     }}
     
-    public void borrarLuchadores(int pos, ArrayList<Luchadores> inventario){
-        if(cantMinima(inventario)&&inventario.size()>pos){ 
+    public void borrarLuchadores(int pos){
+        if(cantMinima()&&inventario.size()>pos){ 
         inventario.remove(pos);   
     }else{
         System.out.println("no existe heroe en esa posicion");
@@ -72,9 +71,9 @@ public class InventarioLuchadores {
      * @param inventario
      * @return
      */
-    public ArrayList<Luchadores> filtrarFaccion(String busqueda, ArrayList<Luchadores> inventario){
+    public ArrayList<Luchadores> filtrarFaccion(String busqueda){
             ArrayList<Luchadores> filtrado = new ArrayList<>();
-        if(cantMinima(inventario)){
+        if(cantMinima()){
             int j=0;
         for (int i =0;i<inventario.size();i++){
           if(inventario.get(i).getFaccion().equals(busqueda)){
@@ -86,9 +85,9 @@ public class InventarioLuchadores {
         return filtrado;
     }
     
-    public ArrayList<Luchadores> filtrarRango(int busqueda, ArrayList<Luchadores> inventario){
+    public ArrayList<Luchadores> filtrarRango(int busqueda){
     ArrayList<Luchadores> filtrado = new ArrayList<>();
-    if(cantMinima(inventario)){
+    if(cantMinima()){
         
         int j=0;
         for (int i =0;i<inventario.size();i++){
@@ -114,9 +113,9 @@ public class InventarioLuchadores {
     }
     
     
-    private boolean cantMinima(ArrayList<Luchadores> inventario){
+    private boolean cantMinima(){
          boolean min = false;
-         if(inventario.size()<1){
+         if(inventario.size()<2){
          System.out.println("Usted no cuenta con luchadores");
          }else{
          min = true;
