@@ -17,6 +17,12 @@ public class InventarioObjeto {
     inventObjeto=new ArrayList<>();
     }
     
+    public void agregarObjetoDropeado(ObjetoEquipable obj){
+    if(cantMaxima()){
+        inventObjeto.add(obj);
+    }
+    }
+    
     public void agregarObjeto(){
     if(cantMaxima()){
         inventObjeto.add(new ObjetoEquipable());

@@ -20,7 +20,14 @@ public class ObjetoEquipable {
     private String statMejorar;
     private String nombre;
     
-    
+  
+    ObjetoEquipable(int estrellas){
+    setEstrellas(estrellas);
+    mejoraBase();
+        statsAMejorar(statSeleccionable());
+        definirNombre();
+        setMejoraFinal();
+    }
     ObjetoEquipable(){
         estrellas();
         mejoraBase();
@@ -51,9 +58,13 @@ public class ObjetoEquipable {
     return this.nombre;
     }
     
-
+    public void setEstrellas(int estrellas){
+    this.rango=estrellas;
+    }
     
-    private int estrellas(){//define las estrellas de cada objeto 
+  
+    
+    private void estrellas(){//define las estrellas de cada objeto 
     Double control =rdm.nextDouble()*100;//genera un numero al azar entre 0 y 100 para generar las posibilidades
       if(20>control){
       
@@ -109,7 +120,7 @@ public class ObjetoEquipable {
       }
       }
       }}     
-  return rango;//devuelve el numero de estrellas para el calculo final
+ //devuelve el numero de estrellas para el calculo final
  }
     
     private ArrayList<String> statSeleccionable(){
@@ -151,6 +162,7 @@ public class ObjetoEquipable {
     return this.rango;
     }
     
+  
     public void mostrarMejoraFinal(){
     
         System.out.println("la mejora final proporcionada por el item es "+this.mejoraFinal);

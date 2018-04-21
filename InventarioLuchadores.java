@@ -12,12 +12,16 @@ import java.util.ArrayList;
  * @author Ce
  */
 public class InventarioLuchadores {
-    private ArrayList<Luchador> inventario;
-    InventarioLuchadores(ArrayList<Luchador> invent){
+    ArrayList<Luchador> inventario;
+    InventarioLuchadores(){
      inventario = new ArrayList<>();
         agregarLuchadores();
      }
   
+    
+    public int getTamaño(){
+    return this.inventario.size();
+    }
    
     public void agregarLuchadores(){
     if(maxHeroes()){

@@ -7,6 +7,7 @@ package proyectoayudante;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -15,30 +16,40 @@ import java.util.Random;
 public class Luchador {
     Random rdm = new Random(); 
     private int hp;
-    private int atk;
+    private double atk;
     private int def;
     private int spd;
     private String faccion;
     private String nombre; 
-    private int estrellas;   
-   Luchador(){
-   setStats();
+    private int estrellas;
+    private ObjetoEquipable object;
+    private ArrayList<ObjetoEquipable> equipado = new ArrayList<>();
+   
+    Luchador(){
+        estrellas();
+        setStats();
    }
    
    public int getHp(){
    return this.hp;
    }
    
+   public void setHp(){
+ 
+   }
    public int getDef(){
    return this.def;
    }
    
-   public int getAtk(){
+   public double getAtk(){
    return this.atk;
    }
    
    public int getSpd(){
    return this.spd;
+   }
+   public void setAtk(double modificado){
+   atk=this.atk*modificado;
    }
    
    public String getFaccion(){
@@ -109,9 +120,10 @@ public class Luchador {
   String[] facciones= new String[3];
   facciones[0]= "fuego";
   facciones[1]= "agua";
-  facciones[2]="tierra";
+  facciones[2]="planta";
   return facciones;
   }
+  
   
   private String decidirFaccion(String[] facciones){//asigna una faccion del array de facciones
   int director = rdm.nextInt(3);
@@ -150,7 +162,49 @@ public class Luchador {
   System.out.println("la vida es "+hp+" el ataque es "+atk+" al defensa es "+def+" la velocidad de movimiento es "+spd+" rango "+estrellas);
   }
   
-  public void mostrar(){
+  public void getBoolean(){//mientras tengamos que separa en paquetes
+  Scanner sc = new Scanner(System.in);
+  System.out.println("ingrese un 1 si desea equipar un objeto");
+  int evaluar=sc.nextInt();
+  boolean equipar=false;
+  if(evaluar==1){
+      equipar=true;
+      objetoEquipado(equipar);
+      mejora(equipar);
+  }else{
+  System.out.println("ha elegido no equipar un objeto");
+  }
+  
+  }
+  
+  private void objetoEquipado(boolean equipar){
+  if(equipar){
+  equipado.add(0,new ObjetoEquipable());
+  equipado.get(0).mostrarTodo();
+  }
+  }
+  
+  private void mejora(boolean equipar){
+  if(equipar){
+  if(equipado.get(0).getNombre().endsWith("Espada")){
+  atk=atk+equipado.get(0).getMejoraFinal();
+  }else{
+  if(equipado.get(0).getNombre().endsWith("Botas")){
+  spd= spd+equipado.get(0).getMejoraFinal();
+  }else{
+  if(equipado.get(0).getNombre().endsWith("Armadura")){
+     def =def+equipado.get(0).getMejoraFinal();
+  }else{
+          hp=hp+equipado.get(0).getMejoraFinal();
+          }
+  
+  }
+  }}}
+      //equipado.get(0).getMejoraFinal();
+  
+          
+          
+    public void mostrar(){
   
       System.out.println("nombre---------------faccion-------------------rango");
       System.out.println("      "+nombre+"-------------"+faccion+"------------------------"+estrellas);
