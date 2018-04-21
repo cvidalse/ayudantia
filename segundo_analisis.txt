@@ -1,0 +1,10 @@
+Existen 8 clases en el estado actual del proyecto Luchador, InventarioLuchadores, ObjetoEquipable, InventarioObjeto, Monstruo, Combate, JuegoDado y Party. 
+Del analisís se desprende que Luchador e InventarioLuchadores tienen una relacion de asociacion unidireccional ya que InventarioLuchadores puede usar metodos de Luchador pero no viceversa, tambien
+de los metodos se desprende la multiplicidad de ambas Luchador(1..25) y InventarioLuchadores(0). Tambien ObjetoEquipable e InventarioObjeto estan asociadas unidireccionalmente debido a la 
+misma razon anterior, y su multiplicidad es ObjetoEquipable(0..10) y InventarioObjeto(0).
+La siguiente relacione encontrada Monstruo y ObjetoEquipable, Monstruo necesita almacenar los objetos del tipo ObjetoEquipable  que dejara al morir,por
+lo tanto Monstruo esta asociado unidireccionalmente con ObjetoEquipable ObjetoEquipable siendo la multiplicidad ObjetoEquipable(3) y Mosntruo(0). Monstruo y InventarioObjeto
+estan asociados unidireccionalmente tambien debido a que Monstruo necesita de InventarioObjetos para que almacene el objeto dejado al morir. Monstruo se agrega a Combate ya que
+es Monstruo es una parte de Combate y si se separan puede seguir existiendo, de igual manera Party esta agregada con Combate y la ultima parte que se agrega es JuegoDado, ya que las 
+3 forman parte de Combate pero todas pueden funcionar por separado, Combate tambien necesita como atributo un InventarioObjetos para agregar el items dropeado al vencer al enemigo
+por lo que se encuentran asociados unilateralmente ya que Combate puede usar metodos de InventarioObjetos como add pero InventarioObjetos no puede usar metodos de Combate
