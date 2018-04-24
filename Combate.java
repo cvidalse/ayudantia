@@ -103,34 +103,53 @@ public void combate(){
     do{
     if(orden){
     
-        this.hpMonstruo=hpMonstruo+(dañoH);
+    this.hpMonstruo=hpMonstruo+(dañoH);
     
+    if(hpMonstruo<0){
+    i=aliados.party.size();
+    System.out.println("El enemigo a muerto, se agregara un Item a tu inventario");
+    enemigo.Dropmuerte(true, inventObj);
+    inventObj.mostrarInventario();
+    break;
+    }  
     //System.out.println("el daño fue increible "+dañoH+"vida"+hpMonstruo);
     
     hpHeroe=this.hpHeroe+dañoM;
-    //System.out.println(" "+hpHeroe+" daño "+dañoM);
+     if(hpHeroe<0){
+         System.out.println("uno de tus peleadores cayo en batalla");
+     break;
+     }
+//System.out.println(" "+hpHeroe+" daño "+dañoM);
     
     }else{
     
         hpHeroe=this.hpHeroe+dañoM;
-    
+        if(hpHeroe<0){
+         System.out.println("uno de tus peleadores cayo en batalla");
+        
+         break;
        // System.out.println("el daño fue increible al heroe"+hpMonstruo);
-    
+        }
+        
         hpMonstruo=this.hpMonstruo+(dañoH);
+        
+        if(hpMonstruo<0){
     
+            i=aliados.party.size();
+    
+            System.out.println("El enemigo a muerto, se agregara un Item a tu inventario");
+    
+            enemigo.Dropmuerte(true, inventObj);
+    
+            inventObj.mostrarInventario();
+   
+    break;
+    }  
     }
      
   }while(hpMonstruo>0&&hpHeroe>0);
-    if(hpMonstruo<0){
-    i=aliados.party.size();
-    enemigo.Dropmuerte(true, inventObj);
-    inventObj.mostrarInventario();
-    System.out.println("El enemigo a muerto, se agregara un Item a tu inventario");
-    }else{
-    System.out.println("uno de tus peleadores cayo en batalla");
     }
-}
-if(hpMonstruo>0){
+    if(hpMonstruo>0){
 System.out.println("todos tus luchadores han sido derrotados");
 }
 }}

@@ -25,19 +25,34 @@ public class Party {
     
     private int numeroLuch(){
     int numero=rdm.nextInt(invLuch.getTamaño());
+    System.out.println(""+invLuch.getTamaño());
     return numero;
     }
     
     private void elejirParty(){
+    ArrayList<Integer> aux = new ArrayList<>();
     if(invLuch.getTamaño()<6){
         party=invLuch.inventario;
     }else{
-    
+        aux.add(0);
+        
+        int numero;
+        
         for(int i=0;i<6;i++){
-    
-            int numero=numeroLuch();
-                party.add(i,invLuch.inventario.get(numero));
-    }}
+        
+            for(int j=0;j<aux.size();j++){
+           numero=numeroLuch();
+        
+           if(numero==aux.get(j)){
+        
+            System.out.println("este luchador ya se encuentra en la party");
+        }else{
+            aux.add(numero);
+            
+            party.add(i,invLuch.inventario.get(numero));
+            break;
+    }
+        }}}
     }
      
     public void mostrarInventario(){
