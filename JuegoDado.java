@@ -12,25 +12,30 @@ import java.util.Random;
  * @author Ce
  */
 public class JuegoDado {
-   private Random rdm = new Random();
-   private int valorResta;
-    
- JuegoDado(){
- restaDados();
- }
-   
- private int dadoOcho(){
-    int valorOcho=rdm.nextInt(8)+1;
+
+    private Random rdm = new Random();
+    private int valorResta;
+
+    JuegoDado() {
+        restaDados();
+    }
+
+    private int dadoOcho() {
+        int valorOcho = rdm.nextInt(8) + 1;
         return valorOcho;
     }
-     private int dadoSeis(){
-     int valorSeis=rdm.nextInt(6)+1;
-     return valorSeis;
-     }
-     private void restaDados(){
-     int valorResta=dadoOcho()-dadoSeis();
-     }
-     public int getValorResta(){
-     return this.valorResta;
-     }
+
+    private int dadoSeis() {
+        int valorSeis = rdm.nextInt(6) + 1;
+        return valorSeis;
     }
+
+    private void restaDados() {
+        valorResta = dadoOcho() - dadoSeis();
+        System.out.println("resta dados"+valorResta);
+    }
+
+    public int getValorResta() {
+        return this.valorResta;
+    }
+}

@@ -17,28 +17,29 @@ public class Proyectoayudante {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    ArrayList<Luchador> vin = new ArrayList<>();
-      InventarioObjeto invObj=new InventarioObjeto();
-      Monstruo m=new Monstruo();
-      InventarioLuchadores invLuch =new InventarioLuchadores();
-      
-      invLuch.agregarLuchadores();
-      invLuch.agregarLuchadores();
-      invLuch.agregarLuchadores();
-      invLuch.agregarLuchadores();
-       invLuch.agregarLuchadores();
+        ArrayList<Luchador> vin = new ArrayList<>();
+        InventarioObjeto invObj = new InventarioObjeto();
+        Monstruo m = new Monstruo();
+        InventarioLuchadores invLuch = new InventarioLuchadores();
+
         invLuch.agregarLuchadores();
-         invLuch.agregarLuchadores();
-     invLuch.agregarLuchadores();
-     invLuch.agregarLuchadores();
-     invLuch.mostrarInventario();
-     ;
-      Party part = new Party(invLuch);
-      part.mostrarInventario();
-      JuegoDado jd=new JuegoDado();
-      Combate pelea = new Combate(m,part,jd,invObj);
-      //part.party.get(0).mostrarTodo();
-      //m.mostrarCaract();
-   }
-    
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.mostrarInventario();
+        ;
+        Party part = new Party(invLuch);
+        part.mostrarInventario();
+        JuegoDado jd = new JuegoDado();
+        System.out.println(jd.getValorResta());
+        Combate pelea = new Combate(m, part, jd, invObj);
+        //part.party.get(0).mostrarTodo();
+        //m.mostrarCaract();
+    }
+
 }

@@ -8,12 +8,12 @@ package proyectoayudante;
 import java.util.ArrayList;
 import java.util.Random;
 
-
 /**
  *
  * @author Ce
  */
 public class Monstruo {
+
     private int vida;
     private double atk;
     private int defensa;
@@ -21,122 +21,122 @@ public class Monstruo {
     Random rdm = new Random();
     private String faccion;
     private ArrayList<ObjetoEquipable> drops;
-    
-    Monstruo(){
-    drops=new ArrayList<>();
-         crearMonstruo();
+
+    Monstruo() {
+        drops = new ArrayList<>();
+        crearMonstruo();
     }
-    
-    private ArrayList<String> listFaccion(){
-    ArrayList<String> fac=new ArrayList<>();
-    fac.add("fuego");
-    fac.add("planta");
-    fac.add("agua");
-    return fac;
-            }
-    
-    private void facciones(ArrayList<String> fac){
-    int selct= rdm.nextInt(3);
-    
-    faccion= fac.get(selct);    
+
+    private ArrayList<String> listFaccion() {
+        ArrayList<String> fac = new ArrayList<>();
+        fac.add("fuego");
+        fac.add("planta");
+        fac.add("agua");
+        return fac;
     }
-    
-    public int getVida(){
-    return this.vida;
+
+    private void facciones(ArrayList<String> fac) {
+        int selct = rdm.nextInt(3);
+
+        faccion = fac.get(selct);
     }
-    
-    public double getAtk(){
-    return this.atk;
+
+    public int getVida() {
+        return this.vida;
     }
-    
-    public int getDefensa(){
-    return this.defensa;
+
+    public double getAtk() {
+        return this.atk;
     }
-    
-    public int getVelocidad(){
-    return this.velocidad;
+
+    public int getDefensa() {
+        return this.defensa;
     }
-    
-    public String getFaccion(){
-    return this.faccion;
+
+    public int getVelocidad() {
+        return this.velocidad;
     }
-   public void setAtk(double modificado){
-   atk=this.atk*modificado;
-   }
-    
-    private void valorVida(){
-    vida = rdm.nextInt(501)+3000;
+
+    public String getFaccion() {
+        return this.faccion;
     }
-    
-    private void valorAtaque(){
-    atk = rdm.nextInt(501)+1000;
+
+    public void setAtk(double modificado) {
+        atk = this.atk * modificado;
     }
-    
-    private void valorDefensa(){
-    defensa = rdm.nextInt(21)+5;
+
+    private void valorVida() {
+        vida = rdm.nextInt(501) + 3000;
     }
-    
-    private void valorVelocidad(){
-    velocidad = rdm.nextInt(91)+10;
+
+    private void valorAtaque() {
+        atk = rdm.nextInt(501) + 1000;
     }
-    private void crearMonstruo(){
-    valorVelocidad();
-    valorAtaque();
-    valorDefensa();
-    valorVida();
-    facciones(listFaccion());
-    crearObjetoDropeable();
+
+    private void valorDefensa() {
+        defensa = rdm.nextInt(21) + 5;
     }
-    
-    private void crearObjetoDropeable(){
-    int estrellas=1; 
-        for(int i=0;3>i;i++){  
-        drops.add(i,new ObjetoEquipable(estrellas));
-        estrellas=estrellas+2;
+
+    private void valorVelocidad() {
+        velocidad = rdm.nextInt(91) + 10;
     }
+
+    private void crearMonstruo() {
+        valorVelocidad();
+        valorAtaque();
+        valorDefensa();
+        valorVida();
+        facciones(listFaccion());
+        crearObjetoDropeable();
     }
-    
-    public void mostrarCaract(){
-    System.out.println("vida-------------------ataque---------------defensa-----------------velocidad");
-    System.out.println(""+vida+"------------------"+atk+"-------------------"+defensa+"-----------------------"+velocidad);
+
+    private void crearObjetoDropeable() {
+        int estrellas = 1;
+        for (int i = 0; 3 > i; i++) {
+            drops.add(i, new ObjetoEquipable(estrellas));
+            estrellas = estrellas + 2;
+        }
     }
-    
-    public void Dropmuerte(boolean muerte,InventarioObjeto inventObj){
-    if(muerte){
-    int lugar=decidirDrop();
-    inventObj.agregarObjetoDropeado(drops.get(lugar));
+
+    public void mostrarCaract() {
+        System.out.println("vida-------------------ataque---------------defensa-----------------velocidad");
+        System.out.println("" + vida + "------------------" + atk + "-------------------" + defensa + "-----------------------" + velocidad);
     }
+
+    public void Dropmuerte(boolean muerte, InventarioObjeto inventObj) {
+        if (muerte) {
+            int lugar = decidirDrop();
+            inventObj.agregarObjetoDropeado(drops.get(lugar));
+        }
     }
-    
+
     /*public void contador(){
     for(int i=0;i<6;i++){
     System.out.println(""+i);
     }
     }    
-    */
-    
-    private int decidirDrop(){
-    int lugar;
-    double posibilidad=rdm.nextDouble()*100;
-    if(60>posibilidad){
-    lugar=0;
-    }else{
-    
-        if(90>posibilidad){
-        lugar=1;
-        }else{
-        lugar=2;
+     */
+    private int decidirDrop() {
+        int lugar;
+        double posibilidad = rdm.nextDouble() * 100;
+        if (60 > posibilidad) {
+            lugar = 0;
+        } else {
+
+            if (90 > posibilidad) {
+                lugar = 1;
+            } else {
+                lugar = 2;
+            }
+
         }
-        
-    }
-    return lugar;
-    }
-    
-    public void mostrarDrop(){
-    for(int i=0;3>i;i++){
-        System.out.println("el objeto que podria dropear es ");
-        drops.get(i).mostrarTodo();
-    }
-    }
+        return lugar;
     }
 
+    public void mostrarDrop() {
+        for (int i = 0; 3 > i; i++) {
+            System.out.println("el objeto que podria dropear es ");
+            drops.get(i).mostrarTodo();
+        }
+    }
+}

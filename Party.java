@@ -13,54 +13,57 @@ import java.util.Random;
  * @author Ce
  */
 public class Party {
+
     InventarioLuchadores invLuch;
-    private Random rdm =new Random();
+    private Random rdm = new Random();
     ArrayList<Luchador> party;
-   
-    Party(InventarioLuchadores inv){
-    invLuch = inv;
-    party= new ArrayList<>();
-    elejirParty();
+
+    Party(InventarioLuchadores inv) {
+        invLuch = inv;
+        party = new ArrayList<>();
+        elejirParty();
     }
-    
-    private int numeroLuch(){
-    int numero=rdm.nextInt(invLuch.getTamaño());
-    System.out.println(""+invLuch.getTamaño());
-    return numero;
+
+    private int numeroLuch() {
+        int numero = rdm.nextInt(invLuch.getTamaño());
+        System.out.println("" + invLuch.getTamaño());
+        return numero;
     }
-    
-    private void elejirParty(){
-    ArrayList<Integer> aux = new ArrayList<>();
-    if(invLuch.getTamaño()<6){
-        party=invLuch.inventario;
-    }else{
-        aux.add(0);
-        
-        int numero;
-        
-        for(int i=0;i<6;i++){
-        
-            for(int j=0;j<aux.size();j++){
-           numero=numeroLuch();
-        
-           if(numero==aux.get(j)){
-        
-            System.out.println("este luchador ya se encuentra en la party");
-        }else{
-            aux.add(numero);
-            
-            party.add(i,invLuch.inventario.get(numero));
-            break;
+
+    private void elejirParty() {
+        ArrayList<Integer> aux = new ArrayList<>();
+        if (invLuch.getTamaño() < 6) {
+            party = invLuch.inventario;
+        } else {
+            aux.add(0);
+
+            int numero;
+
+            for (int i = 0; i < 6; i++) {
+
+                for (int j = 0; j < aux.size(); j++) {
+                    numero = numeroLuch();
+
+                    if (numero == aux.get(j)) {
+
+                        System.out.println("este luchador ya se encuentra en la party");
+                    } else {
+                        aux.add(numero);
+
+                        party.add(i, invLuch.inventario.get(numero));
+                        break;
+                    }
+                }
+            }
+        }
     }
-        }}}
+
+    public void mostrarInventario() {
+        for (int i = 0; i < party.size(); i++) {
+            System.out.print("luchadores que pelearan " + (i + 1) + " ");
+            party.get(i).mostrarTodo();
+
+        }
     }
-     
-    public void mostrarInventario(){
-        for(int i=0;i<party.size();i++){
-            System.out.print("luchadores que pelearan " +(i+1)+" ");
-            party.get(i).mostrar(); 
-    
-        
-    }}
-    
+
 }
