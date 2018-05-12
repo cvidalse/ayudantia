@@ -30,22 +30,22 @@ public class Combate {
 
     private void analizarDados(int i) {
         int resta = dado.getValorResta();
-        System.out.println("valor dado "+resta);
+        System.out.println("valor dado " + resta);
         if (resta > 0) {
             /*for(int i=0;i<aliados.party.size();i++){
     
              */
             ataqueAliado = aliados.party.get(i).getAtk() * resta;
-            ataqueMonstruo= enemigo.getAtk();
+            ataqueMonstruo = enemigo.getAtk();
         } else {
 
             if (dado.getValorResta() < 0) {
-                ataqueMonstruo = enemigo.getAtk() * resta*-1;
+                ataqueMonstruo = enemigo.getAtk() * resta * -1;
                 ataqueAliado = aliados.party.get(i).getAtk();
 
             } else {
-               ataqueAliado = aliados.party.get(i).getAtk();
-               ataqueMonstruo = enemigo.getAtk();
+                ataqueAliado = aliados.party.get(i).getAtk();
+                ataqueMonstruo = enemigo.getAtk();
             }
         }
     }
@@ -55,19 +55,30 @@ public class Combate {
         if (aliados.party.get(i).getFaccion().endsWith("agua") && enemigo.getFaccion().endsWith("fuego")) {
             ataqueAliado = this.ataqueAliado * 1.5;
             ataqueMonstruo = this.ataqueMonstruo * 0.75;
+            System.out.println("favorable para el heroe agua vs fuego");
         } else {
 
             if (aliados.party.get(i).getFaccion().endsWith("fuego") && enemigo.getFaccion().endsWith("planta")) {
                 ataqueAliado = this.ataqueAliado * 1.5;
                 ataqueMonstruo = this.ataqueMonstruo * 0.75;
+                System.out.println("fuego vs planta");
             } else {
 
                 if (aliados.party.get(i).getFaccion().endsWith("planta") && enemigo.getFaccion().endsWith("agua")) {
                     ataqueAliado = this.ataqueAliado * 1.5;
                     ataqueMonstruo = this.ataqueMonstruo * 0.75;
+                    System.out.println("planta vs agua");
                 } else {
-                    ataqueAliado = this.ataqueAliado * 0.75;
-                    ataqueMonstruo = this.ataqueMonstruo * 1.5;
+                    if (aliados.party.get(i).getFaccion() == enemigo.getFaccion()) {
+                        ataqueAliado = this.ataqueAliado;
+                        ataqueMonstruo = this.ataqueMonstruo;
+                        System.out.println("tienen la misma faccion");
+                    } else {
+                        ataqueAliado = this.ataqueAliado * 0.75;
+                        ataqueMonstruo = this.ataqueMonstruo * 1.5;
+                        System.out.println("faccion del heroe" + aliados.party.get(i).getFaccion());
+                        System.out.println("faccion del monstruo" + enemigo.getFaccion());
+                    }
                 }
             }
         }
@@ -84,14 +95,14 @@ public class Combate {
     private double fijarDañoMonstruo(int i) {
         analizarDados(i);
         analizarFaccion(i);
-        double daño = ataqueMonstruo - aliados.party.get(i).getDef();
+        double daño = ataqueMonstruo - aliados.party.get(i).getDefensa();
         //System.out.println("ataque monstruo "+ataqueMonstruo+" defensa ALIDO"+aliados.party.get(i).getDef());
         return daño;
     }
 
     private boolean ordenAtaque(int i) {
         boolean orden;
-        if (aliados.party.get(i).getSpd() > enemigo.getVelocidad()) {
+        if (aliados.party.get(i).getVelocidad() > enemigo.getVelocidad()) {
             orden = true;
             System.out.println("el luchador atacara primero");
         } else {
@@ -105,7 +116,7 @@ public class Combate {
         hpMonstruo = enemigo.getVida();
 
         for (int i = 0; i < aliados.party.size(); i++) {
-            hpHeroe = aliados.party.get(i).getHp();
+            hpHeroe = aliados.party.get(i).getVida();
 
             double dañoM = fijarDañoMonstruo(i);
             double dañoH = fijarDañoHeroe(i);
@@ -114,9 +125,9 @@ public class Combate {
                 if (orden) {
 
                     this.hpMonstruo = hpMonstruo - (dañoH);
-                     System.out.println("la vida restante "+hpMonstruo);
+                    System.out.println("la vida restante " + hpMonstruo);
                     if (hpMonstruo < 0) {
-                        
+
                         i = aliados.party.size();
                         System.out.println("El enemigo a muerto, se agregara un Item a tu inventario");
                         enemigo.Dropmuerte(true, inventObj);
@@ -126,7 +137,7 @@ public class Combate {
                     //System.out.println("el daño fue increible "+dañoH+"vida"+hpMonstruo);
 
                     hpHeroe = this.hpHeroe - dañoM;
-                    System.out.println("vida heroe restante"+hpHeroe+" daño monstruo"+dañoM); 
+                    System.out.println("vida heroe restante" + hpHeroe + " daño monstruo" + dañoM);
                     if (hpHeroe < 0) {
                         System.out.println("uno de tus peleadores cayo en batalla");
                         break;
@@ -136,12 +147,12 @@ public class Combate {
                 } else {
 
                     hpHeroe = this.hpHeroe - dañoM;
-                     System.out.println("el daño fue increible al heroe"+hpHeroe);
+                    System.out.println("el daño fue increible al heroe" + hpHeroe);
                     if (hpHeroe < 0) {
                         System.out.println("uno de tus peleadores cayo en batalla");
 
                         break;
-                        
+
                     }
 
                     hpMonstruo = this.hpMonstruo - dañoH;

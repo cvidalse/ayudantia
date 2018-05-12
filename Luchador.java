@@ -6,58 +6,57 @@
 package proyectoayudante;
 
 import java.util.ArrayList;
-import java.util.Random;
+
 import java.util.Scanner;
 
 /**
  *
  * @author Ce
  */
-public class Luchador {
+public class Luchador extends Personaje {
 
-    Random rdm = new Random();
-    private int hp;
-    private double atk;
-    private int def;
-    private int spd;
-    private String faccion;
-    private String nombre;
-    private int estrellas;
+//    private int hp;
+//    private double atk;
+//    private int def;
+//    private int spd;
+//    private String faccion;
+//    private String nombre;
+//    private int estrellas;
     private ObjetoEquipable object;
     private ArrayList<ObjetoEquipable> equipado = new ArrayList<>();
-
+   
     Luchador() {
         estrellas();
         setStats();
     }
 
-    public int getHp() {
-        return this.hp;
-    }
-
-    public void setHp() {
-
-    }
-
-    public int getDef() {
-        return this.def;
-    }
-
-    public double getAtk() {
-        return this.atk;
-    }
-
-    public int getSpd() {
-        return this.spd;
-    }
+//    public int getHp() {
+//        return this.hp;
+//    }
+//
+//    public void setHp() {
+//
+//    }
+//
+//    public int getDef() {
+//        return this.def;
+//    }
+//
+//    public double getAtk() {
+//        return this.atk;
+//    }
+//
+//    public int getSpd() {
+//        return this.spd;
+//    }
 
     public void setAtk(double modificado) {
         atk = this.atk * modificado;
     }
 
-    public String getFaccion() {
-        return this.faccion;
-    }
+//    public String getFaccion() {
+//        return this.faccion;
+//    }
 
     public int getRango() {
         return this.estrellas;
@@ -119,13 +118,13 @@ public class Luchador {
 
     }
 
-    private String[] faccion() {//array de facciones
-        String[] facciones = new String[3];
-        facciones[0] = "fuego";
-        facciones[1] = "agua";
-        facciones[2] = "planta";
-        return facciones;
-    }
+//    private String[] faccion() {//array de facciones
+//        String[] facciones = new String[3];
+//        facciones[0] = "fuego";
+//        facciones[1] = "agua";
+//        facciones[2] = "planta";
+//        return facciones;
+//    }
 
     private String decidirFaccion(String[] facciones) {//asigna una faccion del array de facciones
         int director = rdm.nextInt(3);

@@ -7,11 +7,13 @@ package proyectoayudante;
 
 import java.util.ArrayList;
 
+
+
 /**
  *
  * @author Ce
  */
-public class InventarioObjeto {
+public class InventarioObjeto extends Inventario {
 
     ArrayList<ObjetoEquipable> inventObjeto;
 

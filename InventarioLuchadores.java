@@ -7,11 +7,13 @@ package proyectoayudante;
 
 import java.util.ArrayList;
 
+
+
 /**
  *
  * @author Ce
  */
-public class InventarioLuchadores {
+public class InventarioLuchadores extends Inventario {
 
     ArrayList<Luchador> inventario;
 
@@ -28,8 +30,10 @@ public class InventarioLuchadores {
         if (maxHeroes()) {
             inventario.add(new Luchador());
         }
+ 
     }
 
+    
     private boolean maxHeroes() {
         boolean max = false;
         if (inventario.size() > 25) {
