@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Ce
  */
-public class Luchador extends Personaje {
+public class Luchador extends Personaje  {
 
 //    private int hp;
 //    private double atk;
@@ -22,21 +22,26 @@ public class Luchador extends Personaje {
 //    private String faccion;
 //    private String nombre;
 //    private int estrellas;
+    double hpPelea = hp;
     private ObjetoEquipable object;
     private ArrayList<ObjetoEquipable> equipado = new ArrayList<>();
-   
+
     Luchador() {
         estrellas();
         setStats();
+    }
+    
+    public double getHpPelea(){
+    return hpPelea;
     }
 
 //    public int getHp() {
 //        return this.hp;
 //    }
 //
-//    public void setHp() {
-//
-//    }
+    public void setHpPelea(double daño) {
+    this.hpPelea= hpPelea-daño;
+    }
 //
 //    public int getDef() {
 //        return this.def;
@@ -49,7 +54,6 @@ public class Luchador extends Personaje {
 //    public int getSpd() {
 //        return this.spd;
 //    }
-
     public void setAtk(double modificado) {
         atk = this.atk * modificado;
     }
@@ -57,7 +61,6 @@ public class Luchador extends Personaje {
 //    public String getFaccion() {
 //        return this.faccion;
 //    }
-
     public int getRango() {
         return this.estrellas;
     }
@@ -125,7 +128,6 @@ public class Luchador extends Personaje {
 //        facciones[2] = "planta";
 //        return facciones;
 //    }
-
     private String decidirFaccion(String[] facciones) {//asigna una faccion del array de facciones
         int director = rdm.nextInt(3);
         faccion = facciones[director];
@@ -216,4 +218,15 @@ public class Luchador extends Personaje {
     //Double d = rdm.nextDouble()*100;
     //System.out.println(""+d);
     //}
+
+//    @Override
+//    public int compareTo(Luchador o) {
+////        if (spd > o.spd) {
+////            return -1;
+////        }
+////        if (spd < o.spd) {
+////            return 1;
+////        }
+//        return Integer.compare(o.spd, spd);
+//    }
 }

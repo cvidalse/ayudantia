@@ -11,10 +11,10 @@ import java.util.Random;
  *
  * @author Ce
  */
-public class Personaje {
+public class Personaje implements Comparable<Personaje> {
 
     protected Random rdm = new Random();
-    protected int hp;
+    protected double hp;
     protected double atk;
     protected int def;
     protected int spd;
@@ -29,7 +29,7 @@ public class Personaje {
         facciones[2] = "planta";
         return facciones;
     }
-       public int getVida() {
+       public double getVida() {
         return this.hp;
     }
 
@@ -48,5 +48,15 @@ public class Personaje {
     public String getFaccion() {
         return this.faccion;
     }
-
+    
+    @Override
+    public int compareTo(Personaje o) {
+//        if (spd > o.spd) {
+//            return -1;
+//        }
+//        if (spd < o.spd) {
+//            return 1;
+//        }
+        return Integer.compare(o.spd, spd);
+    }
 }

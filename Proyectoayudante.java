@@ -27,24 +27,29 @@ invLuch.mostrarInventario();
 m.mostrarCaract();
 System.out.println(""+invLuch.getTamaño());
 
-//        invLuch.agregarLuchadores();
-//        invLuch.agregarLuchadores();
-//        invLuch.agregarLuchadores();
-//        invLuch.agregarLuchadores();
-//        invLuch.agregarLuchadores();
-//        invLuch.agregarLuchadores();
-//        invLuch.agregarLuchadores();
-//        invLuch.agregarLuchadores();
-//        invLuch.agregarLuchadores();
-//        invLuch.mostrarInventario();
-//        ;
-//        Party part = new Party(invLuch);
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.agregarLuchadores();
+        invLuch.mostrarInventario();
+        ;
+        Party part = new Party(invLuch);
+        
 //        part.mostrarInventario();
-//        JuegoDado jd = new JuegoDado();
+//        part.ordenParty();
+//        part.mostrarInventario();
+        JuegoDado jd = new JuegoDado();
 //        System.out.println(jd.getValorResta());
-//        Combate pelea = new Combate(m, part, jd, invObj);
-        //part.party.get(0).mostrarTodo();
-        //m.mostrarCaract();
+        Combate pelea = new Combate(m, part, jd, invObj);
+        //pelea.combate();
+       
+//        part.party.get(0).mostrarTodo();
+//        m.mostrarCaract();
     }
 
 }
