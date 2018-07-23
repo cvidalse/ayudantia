@@ -21,7 +21,7 @@ import proyectoayudante.*;
 public class VentanaPrincipal extends JFrame implements ActionListener {
 
     JuegoDado jDado;
-    JButton dados;
+    //JButton dados;
     JButton combate;
     JButton party;
     JButton luchador;
@@ -46,13 +46,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
 
         setLayout(null);
-        dados = new JButton("lanzar dados");
-        dados.setBounds(10, 50, 150, 20);
-        this.add(dados);
+        //dados = new JButton("lanzar dados");
+        //dados.setBounds(10, 50, 150, 20);
+        //this.add(dados);
 //        etiquetaDados = new JLabel("0");
 //        etiquetaDados.setBounds(170, 50, 150, 20);
 //        this.add(etiquetaDados);
-        dados.addActionListener(this);
+        //dados.addActionListener(this);
         party = new JButton("n° party");
         party.setBounds(10, 80, 150, 20);
         this.add(party);
@@ -75,13 +75,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == dados) {
+        /*if (e.getSource() == dados) {
 
 //            etiquetaDados.setText("" + jDado.getValorResta());
             valorDados = jDado.getValorResta();
             JOptionPane.showMessageDialog(this, "valor de los dados :" + valorDados);
             dados.setEnabled(false);
-        }
+        }*/
         if (e.getSource() == party) {
 
             int valor = 0;
@@ -111,7 +111,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
             try {//la condicion para que gatille la excepcion es que la clase Party aun no hubiese sido creada
                 mo = new Monstruo();
                 comb = new Combate(mo, grupo, jDado, inventObj);
-                dados.setEnabled(true);
+                //dados.setEnabled(true);
                 party.setEnabled(true);
                 VentanaResultado vent = new VentanaResultado(comb.toString(), inventObj);
 
